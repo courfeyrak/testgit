@@ -2358,21 +2358,7 @@
                         "dailyMemoryTimeQuota": 0,
                         "httpsOnly": false,
                         "redundancyMode": "None"
-                    },
-                    "resources": [
-                        {
-                            "type": "Extensions",
-                            "apiVersion": "2018-11-01",
-                            "name": "ZipDeploy",
-                            "dependsOn": [
-                                "[resourceId('Microsoft.Web/sites', variables('configAppName'))]"
-                            ],
-                            "properties": {
-                                "packageUri": "[concat('https://github.com/Prosperoware/cam-azure-deployment/raw/', variables('branch'), '/etl-config.zip')]",
-                                "setParameters": {}
-                            }
-                        }
-                    ]
+                    }
                 }
             ]
         },
