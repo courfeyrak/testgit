@@ -23,17 +23,6 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[parameters('storageAccountName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_RAGRS",
-                "tier": "Standard"
-            },
-            "kind": "StorageV2"
-        },
-        {
             "type": "Microsoft.Insights/components",
             "apiVersion": "2020-02-02-preview",
             "name": "[parameters('configAppInsightsName')]",
