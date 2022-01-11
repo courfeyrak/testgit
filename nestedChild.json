@@ -1,0 +1,133 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    
+    "resources": [
+        {
+            "type": "Microsoft.Insights/components",
+            "apiVersion": "2020-02-02-preview",
+            "name": "pros111129dev-io-etl-config",
+            "location": "westus",
+            "kind": "web",
+            "properties": {
+                "Application_Type": "web",
+                "IngestionMode": "ApplicationInsights",
+                "publicNetworkAccessForIngestion": "Enabled",
+                "publicNetworkAccessForQuery": "Enabled"
+            },
+            "resources": [
+                {
+                    "type": "Microsoft.Web/sites",
+                    "apiVersion": "2018-11-01",
+                    "name": "pros111129dev-io-etl-config",
+                    "location": "westus",
+                    "kind": "functionapp",
+                    "identity": {
+                        "type": "SystemAssigned"
+                    },
+                    "properties": {
+                        "siteConfig": {
+                            "appSettings": [
+                                {
+                                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                                    "value": "~3"
+                                },
+                                {
+                                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                                    "value": "node"
+                                },
+                                {
+                                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                                    "value": "~14"
+                                },
+                                {
+                                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                                    "value": "[reference(resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config'), '2020-02-02-preview').InstrumentationKey]"
+                                },
+                                {
+                                    "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+                                    "value": "[reference(resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config'), '2020-02-02-preview').ConnectionString]"
+                                },
+                                {
+                                    "name": "AzureWebJobsStorage",
+                                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', 'strgpros111129devio', ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', 'strgpros111129devio'),'2019-06-01').keys[0].value)]"
+                                },
+                                {
+                                    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', 'strgpros111129devio', ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', 'strgpros111129devio'),'2019-06-01').keys[0].value, ';EndpointSuffix=core.windows.net')]"
+                                },
+                                {
+                                    "name": "storage_accountname",
+                                    "value": "strgpros111129devio"
+                                },
+                                {
+                                    "name": "mySqlServerName",
+                                    "value": "wer"
+                                },
+                                {
+                                    "name": "mySqlUsername",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "mySqlPwd",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "mySqlDatabaseName",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "etl_job_process_queue",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "contentsync_job_process_queue",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "cosmos_accountname",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "cosmos_csdbname",
+                                    "value": "asdf"
+                                },
+                                {
+                                    "name": "storage_accountkey",
+                                    "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', 'strgpros111129devio'),'2019-06-01').keys[0].value]"
+                                },
+                                {
+                                    "name": "WEBSITE_RUN_FROM_PACKAGE",
+                                    "value": "1"
+                                }
+
+                            ]
+                        },
+                        "scmSiteAlsoStopped": false,
+                        "clientAffinityEnabled": false,
+                        "clientCertEnabled": false,
+                        "hostNamesDisabled": false,
+                        "containerSize": 1536,
+                        "dailyMemoryTimeQuota": 0,
+                        "httpsOnly": false,
+                        "redundancyMode": "None"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2021-04-01",
+            "name": "linkedTemplate",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "relativePath": "nestedChild.json"
+                }
+            }
+    }
+    ],
+    "outputs": {
+       
+    }
+}
