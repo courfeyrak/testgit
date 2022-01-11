@@ -20,10 +20,7 @@
                     "type": "Microsoft.Web/sites",
                     "apiVersion": "2018-11-01",
                     "name": "pros111129dev-io-etl-config",
-                    "location": "westus",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config')]"
-                    ],
+                    "location": "westus"
                     "kind": "functionapp",
                     "identity": {
                         "type": "SystemAssigned"
