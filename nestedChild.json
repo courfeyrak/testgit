@@ -41,7 +41,6 @@
                     "name": "[parameters('webServerName')]",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Storage/storageAccounts',  parameters('storageAccountName'))]",
                         "[resourceId('Microsoft.Insights/components',  parameters('configAppInsightsName'))]"
                     ],
                     "kind": "functionapp",
