@@ -114,18 +114,7 @@
                     }
                 }
             ]
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2021-04-01",
-            "name": "linkedTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "nestedChild.json"
-                }
-            }
-    }
+        }
     ],
     "outputs": {
        
