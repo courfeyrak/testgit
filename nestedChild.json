@@ -7,7 +7,7 @@
             "type": "Microsoft.Insights/components",
             "apiVersion": "2020-02-02-preview",
             "name": "pros111129dev-io-etl-config",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "kind": "web",
             "properties": {
                 "Application_Type": "web",
@@ -20,7 +20,7 @@
                     "type": "Microsoft.Web/sites",
                     "apiVersion": "2018-11-01",
                     "name": "pros111129dev-io-etl-config",
-                    "location": "westus",
+                    "location": "[resourceGroup().location]",
                     "kind": "functionapp",
                     "identity": {
                         "type": "SystemAssigned"
