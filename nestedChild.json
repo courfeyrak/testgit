@@ -4,21 +4,18 @@
     "parameters": {
         "webServerName": {
             "type": "string",
-            "minLength": 36,
             "metadata": {
                 "description": "Prosperoware Tenant Id will be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "storageAccountName": {
             "type": "string",
-            "minLength": 32,
             "metadata": {
                 "description": "This encrypted Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "configAppInsightsName": {
             "type": "string",
-            "minLength": 32,
             "metadata": {
                 "description": "This secret Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
