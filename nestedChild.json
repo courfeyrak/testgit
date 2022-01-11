@@ -21,6 +21,9 @@
                     "apiVersion": "2018-11-01",
                     "name": "pros111129dev-io-etl-config",
                     "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config')]"
+                    ],
                     "kind": "functionapp",
                     "identity": {
                         "type": "SystemAssigned"
