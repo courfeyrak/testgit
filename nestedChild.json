@@ -1,12 +1,34 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    
+    "parameters": {
+        "webServerName": {
+            "type": "string",
+            "minLength": 36,
+            "metadata": {
+                "description": "Prosperoware Tenant Id will be provided by Prosperoware. Make sure to get the key before starting the installation."
+            }
+        },
+        "storageAccountName": {
+            "type": "string",
+            "minLength": 32,
+            "metadata": {
+                "description": "This encrypted Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
+            }
+        },
+        "configAppInsightsName": {
+            "type": "string",
+            "minLength": 32,
+            "metadata": {
+                "description": "This secret Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
+            }
+        }
+    },
     "resources": [
         {
             "type": "Microsoft.Insights/components",
             "apiVersion": "2020-02-02-preview",
-            "name": "pros111129dev-io-etl-config",
+            "name": "[parameters('configAppInsightsName')]",
             "location": "[resourceGroup().location]",
             "kind": "web",
             "properties": {
@@ -19,12 +41,11 @@
                 {
                     "type": "Microsoft.Web/sites",
                     "apiVersion": "2018-11-01",
-                    "name": "pros111129dev-io-etl-config",
+                    "name": "[parameters('webServerName')]",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config')]",
-                        "[resourceId('Microsoft.Storage/storageAccounts', 'strgpros111129devio')]",
-                        "[resourceId('Microsoft.Insights/components','pros111129dev-io-etl-config')]"
+                        "[resourceId('Microsoft.Storage/storageAccounts',  parameters('storageAccountName'))]",
+                        "[resourceId('Microsoft.Insights/components',  parameters('configAppInsightsName'))]"
                     ],
                     "kind": "functionapp",
                     "identity": {
