@@ -22,7 +22,9 @@
                     "name": "pros111129dev-io-etl-config",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config')]"
+                        "[resourceId('Microsoft.Insights/components', 'pros111129dev-io-etl-config')]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', 'strgpros111129devio')]",
+                        "[resourceId('Microsoft.Insights/components','pros111129dev-io-etl-config')]"
                     ],
                     "kind": "functionapp",
                     "identity": {
