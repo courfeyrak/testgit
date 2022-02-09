@@ -6,7 +6,7 @@
             "type": "string",
             "minLength": 36,
             "metadata": {
-                "description": "Prosperoware Tenants Id saill be provided by Prosperoware. Make sure to get the key before starting the installation."
+                "description": "Prosperoware Tenants Id ssaill be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "ProsperowareEncryptedKey": {
