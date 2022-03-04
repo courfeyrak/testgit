@@ -6,7 +6,7 @@
             "type": "string",
             "minLength": 36,
             "metadata": {
-                "description": "Prosperoware Tenants dedasdfe Idasdf dia be provided by Prosperoware. Make sure to get the key before starting the installation."
+                "description": "Prosperoware Tenandts dedasdfe Idasdf dia be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "ProsperowareEncryptedKey": {
