@@ -6,7 +6,7 @@
             "type": "string",
             "minLength": 36,
             "metadata": {
-                "description": "Prosperoware Tenandts Iia be provided by Prosperoware. Make sure to get the key before starting the installation."
+                "description": "Prosasdfperoware Tenandts Iia be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "ProsperowareEncryptedKey": {
