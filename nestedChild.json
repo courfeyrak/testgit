@@ -5,7 +5,7 @@
         "webServerName": {
             "type": "string",
             "metadata": {
-                "description": "Prosperoware Tenant Id will be provided by Prosperoware. Make sure to get the key before starting the installation."
+                "description": "Prospearoware Tenant Id will be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "storageAccountName": {
