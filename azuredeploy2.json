@@ -13,7 +13,7 @@
             "type": "string",
             "minLength": 32,
             "metadata": {
-                "description": "This encrypted Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
+                "description": "This easdfncrypted Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "ProsperowareSecretKey": {
