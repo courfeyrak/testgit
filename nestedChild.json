@@ -11,7 +11,7 @@
         "storageAccountName": {
             "type": "string",
             "metadata": {
-                "description": "This encrypted Key will be provided by Prosperoware. Make sure to get the key before starting the installation."
+                "description": "This encrypted Keasdfy will be provided by Prosperoware. Make sure to get the key before starting the installation."
             }
         },
         "configAppInsightsName": {
