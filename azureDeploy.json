@@ -5,7 +5,7 @@
         "ProsperowareTenantId": {
             "type": "string",
             "minLength": 36,
-            "metadata": { 
+            "metadata": {
                 "description": "Prospderoware Tenands a be provided by Prosperoware. Make sure to get the key before starting the installation."
 
             }
